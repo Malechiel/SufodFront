@@ -110,18 +110,28 @@
                 S'INSCRIRE / SE CONNECTER</a
               >
             </li>
+
+            <li class="nav-item">
+              <a
+                *ngIf="compte?.type == 'admin'"
+                class="btn btn-link"
+                routerLink="/admin"
+                routerLinkActive="active"
+              >
+                Admin
+              </a>
+            </li>
+
             <li class="nav-item">
               <a
                 *ngIf="logged"
-                class="btn btn-action btn-lg"
+                class="btn btn-danger"
                 routerLink="/home"
                 routerLinkActive="active"
+                (click)="logout()"
               >
-                {{ compte?.pseudo }}
-                <button (click)="logout()" class="btn btn-link">
-                  deconnexion
-                </button></a
-              >
+                Pseudo : {{ compte?.pseudo }} / Deconnexion
+              </a>
             </li>
           </ul>
         </div>

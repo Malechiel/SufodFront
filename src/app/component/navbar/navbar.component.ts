@@ -13,6 +13,14 @@ export class NavbarComponent implements OnInit {
     return sessionStorage.getItem('token');
   }
 
+  get admin() {
+    if (sessionStorage.getItem('compte.type') == 'admin') {
+      console.log('admin connected');
+      return true;
+    }
+    return false;
+  }
+
   get compte(): Compte | null {
     if (sessionStorage.getItem('compte')) {
       return JSON.parse(sessionStorage.getItem('compte')!) as Compte;

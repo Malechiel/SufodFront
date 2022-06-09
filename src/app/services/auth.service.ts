@@ -7,9 +7,9 @@ import { Compte } from '../model/compte';
   providedIn: 'root',
 })
 export class AuthService {
-  public auth(pseudo: string, password: string): Observable<Compte> {
+  public auth(pseudo: string, mdp: string): Observable<Compte> {
     let monHeaders = new HttpHeaders({
-      Authorization: 'Basic ' + btoa(`${pseudo}:${password}`),
+      Authorization: 'Basic ' + btoa(`${pseudo}:${mdp}`),
     });
     return this.httpClient.get<Compte>('http://localhost:8080/sufod/api/auth', {
       headers: monHeaders,

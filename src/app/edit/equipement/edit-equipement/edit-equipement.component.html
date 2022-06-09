@@ -1,88 +1,125 @@
-<div>
-  <div class="form-group">
-    <label>id:</label>
-    <input
-      [(ngModel)]="equipement.id"
-      class="form-control"
-      readonly
-      placeholder="generation automatique"
-    />
-  </div>
-  <div class="form-group">
-    <label>Libelle :</label>
-    <input type="text" class="form-control" [(ngModel)]="equipement.libelle" />
-  </div>
-  <div class="form-group">
-    <label>Descirption :</label>
-    <input
-      type="text"
-      class="form-control"
-      [(ngModel)]="equipement.description"
-    />
-  </div>
-  <div class="form-group">
-    <label>Chance de drop :</label>
-    <input
-      type="number"
-      class="form-control"
-      [(ngModel)]="equipement.dropChance"
-    />
-  </div>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)" />
 
-  <div class="form-group">
-    <label>Pv :</label>
-    <input type="number" class="form-control" [(ngModel)]="equipement.pv" />
-  </div>
+    <title>Sufod - Jeu gratuit mais e-shop honéreux $_$</title>
+    <link rel="shortcut icon" href="../../assets/images/gt_favicon.png" />
 
-  <div class="form-group">
-    <label>Defense :</label>
-    <input
-      type="number"
-      class="form-control"
-      [(ngModel)]="equipement.defense"
-    />
-  </div>
+    <!-- <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css" /> -->
 
-  <div class="form-group">
-    <label>Attaque :</label>
-    <input
-      type="number"
-      class="form-control"
-      [(ngModel)]="equipement.attaque"
-    />
-  </div>
+    <!-- Custom styles for our template -->
+    <!-- <link
+      rel="stylesheet"
+      href="assets/css/bootstrap-theme.css"
+      media="screen"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/main.css" /> -->
 
-  <div class="form-group">
-    <label>Localisation :</label>
-    <select [(ngModel)]="equipement.localisation">
-      <option value="tete">Tete</option>
-      <option value="torse">Torse</option>
-      <option value="bras_gauche">Bras Gauche</option>
-      <option value="bras_droit">Bras Droit</option>
-      <option value="main_gauche">Main Gauche</option>
-      <option value="main_droite">Main Droite</option>
-      <option value="jambieres">Jambière</option>
-      <option value="jambe_gauche">Jambe Gauche</option>
-      <option value="jambe_droite">Jambe Droite</option>
-    </select>
-  </div>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <br />
+    <br />
+    <div class="container">
+      <h1>Edition Equipement</h1>
+      <div class="form-group">
+        <label>id:</label>
+        <input
+          [(ngModel)]="equipement.id"
+          class="form-control"
+          readonly
+          placeholder="generation automatique"
+        />
+      </div>
+      <div class="form-group">
+        <label>Libelle :</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="equipement.libelle"
+        />
+      </div>
+      <div class="form-group">
+        <label>Descirption :</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="equipement.description"
+        />
+      </div>
+      <div class="form-group">
+        <label>Chance de drop :</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="equipement.dropChance"
+        />
+      </div>
 
-  <div class="form-group">
-    <label>attaque</label>
-    <select class="form-control" [(ngModel)]="equipement.personnages">
-      <option *ngFor="let p of personnage | async" [ngValue]="p">
-        {{ p.id }} {{ p.nom }}
-      </option>
-    </select>
-  </div>
+      <div class="form-group">
+        <label>Pv :</label>
+        <input type="number" class="form-control" [(ngModel)]="equipement.pv" />
+      </div>
 
-  <div>
-    <button (click)="save()" class="btn btn-primary">enregistrer</button>
-    <a
-      routerLink="/admin/equipement/list"
-      routerLinkActive="active"
-      class="btn btn-link"
-      >annuler</a
-    >
-  </div>
-</div>
+      <div class="form-group">
+        <label>Defense :</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="equipement.defense"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Attaque :</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="equipement.attaque"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Localisation :</label>
+        <select [(ngModel)]="equipement.localisation">
+          <option value="tete">Tete</option>
+          <option value="torse">Torse</option>
+          <option value="bras_gauche">Bras Gauche</option>
+          <option value="bras_droit">Bras Droit</option>
+          <option value="main_gauche">Main Gauche</option>
+          <option value="main_droite">Main Droite</option>
+          <option value="jambieres">Jambière</option>
+          <option value="jambe_gauche">Jambe Gauche</option>
+          <option value="jambe_droite">Jambe Droite</option>
+        </select>
+      </div>
+
+      <div>
+        <button (click)="save()" class="btn btn-primary">enregistrer</button>
+        <a
+          routerLink="/admin/equipement/list"
+          routerLinkActive="active"
+          class="btn btn-danger"
+          >annuler</a
+        >
+      </div>
+    </div>
+  </body>
+  <app-footer></app-footer>
+</html>

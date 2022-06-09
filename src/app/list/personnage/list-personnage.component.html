@@ -1,47 +1,95 @@
-<table class="table">
-  <tr>
-    <th>Id</th>
-    <th>Nom</th>
-    <th>Description</th>
-    <th>Niveau</th>
-    <th>Classe</th>
-    <th>Defense</th>
-    <th>Pv</th>
-    <th>PvMax</th>
-    <th>Xp</th>
-    <th>Compte</th>
-    <th>Attaque</th>
-    <th>Item</th>
-  </tr>
-  <tr *ngFor="let personnage of personnages | async">
-    <td>{{ personnage.id }}</td>
-    <td>{{ personnage.nom }}</td>
-    <td>{{ personnage.description }}</td>
-    <td>{{ personnage.niveau }}</td>
-    <td>{{ personnage.classe }}</td>
-    <td>{{ personnage.defense }}</td>
-    <td>{{ personnage.pv }}</td>
-    <td>{{ personnage.pvMax }}</td>
-    <td>{{ personnage.xp }}</td>
-    <td>{{ personnage.compte?.id }} {{ personnage.compte?.type }}</td>
-    <td>{{ personnage.attaque?.id }} {{ personnage.attaque?.nom }}</td>
-    <td>{{ personnage.items?.id }} {{ personnage.items?.libelle }}</td>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)" />
 
-    <td>
-      <a
-        routerLink="/admin/personnage/edit/{{ personnage.id }}"
-        routerLinkActive="active"
-        class="btn btn-primary"
-        >edition</a
+    <title>Sufod - Jeu gratuit mais e-shop honéreux $_$</title>
+    <link rel="shortcut icon" href="../../assets/images/gt_favicon.png" />
+
+    <!-- <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css" /> -->
+
+    <!-- Custom styles for our template -->
+    <!-- <link
+      rel="stylesheet"
+      href="assets/css/bootstrap-theme.css"
+      media="screen"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/main.css" /> -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+      <h1>List des personnages</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Niveau</th>
+            <th>Classe</th>
+            <th>Defense</th>
+            <th>Pv</th>
+            <th>PvMax</th>
+            <th>Xp</th>
+            <th>Compte</th>
+            <th>Attaque</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let personnage of personnages | async">
+            <td>{{ personnage.id }}</td>
+            <td>{{ personnage.nom }}</td>
+            <td>{{ personnage.description }}</td>
+            <td>{{ personnage.niveau }}</td>
+            <td>{{ personnage.classe }}</td>
+            <td>{{ personnage.defense }}</td>
+            <td>{{ personnage.pv }}</td>
+            <td>{{ personnage.pvMax }}</td>
+            <td>{{ personnage.xp }}</td>
+            <td>{{ personnage.compte?.id }} {{ personnage.compte?.type }}</td>
+            <td>{{ personnage.attaque?.id }} {{ personnage.attaque?.nom }}</td>
+
+            <td>
+              <a
+                routerLink="/admin/personnage/edit/{{ personnage.id }}"
+                routerLinkActive="active"
+                class="btn btn-primary"
+                >edition</a
+              >
+            </td>
+            <td>
+              <button (click)="delete(personnage.id!)" class="btn btn-danger">
+                supprimer
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a routerLink="/admin/personnage/edit" class="btn btn-success"
+        >nouveau personnage</a
       >
-    </td>
-    <td>
-      <button (click)="delete(personnage.id!)" class="btn btn-danger">
-        supprimer
-      </button>
-    </td>
-  </tr>
-</table>
-<a routerLink="/admin/personnage/edit" class="btn btn-link"
-  >nouveau personnage</a
->
+    </div>
+  </body>
+  <app-footer></app-footer>
+</html>

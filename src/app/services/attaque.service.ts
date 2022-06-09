@@ -12,6 +12,7 @@ export class AttaqueService {
   constructor(private httpClient: HttpClient) {}
 
   public getAll(): Observable<Attaque[]> {
+    console.log('getallfonction');
     return this.httpClient.get<Attaque[]>(this.url);
   }
 

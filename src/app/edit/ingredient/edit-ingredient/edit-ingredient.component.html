@@ -1,50 +1,87 @@
-<div>
-  <div class="form-group">
-    <label>id:</label>
-    <input
-      [(ngModel)]="ingredient.id"
-      class="form-control"
-      readonly
-      placeholder="generation automatique"
-    />
-  </div>
-  <div class="form-group">
-    <label>Libelle :</label>
-    <input type="text" class="form-control" [(ngModel)]="ingredient.libelle" />
-  </div>
-  <div class="form-group">
-    <label>Descirption :</label>
-    <input
-      type="text"
-      class="form-control"
-      [(ngModel)]="ingredient.description"
-    />
-  </div>
-  <div class="form-group">
-    <label>Chance de drop :</label>
-    <input
-      type="number"
-      class="form-control"
-      [(ngModel)]="ingredient.dropChance"
-    />
-  </div>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)" />
 
-  <div class="form-group">
-    <label>attaque</label>
-    <select class="form-control" [(ngModel)]="ingredient.personnages">
-      <option *ngFor="let p of personnage | async" [ngValue]="p">
-        {{ p.id }} {{ p.nom }}
-      </option>
-    </select>
-  </div>
+    <title>Sufod - Jeu gratuit mais e-shop honéreux $_$</title>
+    <link rel="shortcut icon" href="../../assets/images/gt_favicon.png" />
 
-  <div>
-    <button (click)="save()" class="btn btn-primary">enregistrer</button>
-    <a
-      routerLink="/admin/ingredient/list"
-      routerLinkActive="active"
-      class="btn btn-link"
-      >annuler</a
-    >
-  </div>
-</div>
+    <!-- <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css" /> -->
+
+    <!-- Custom styles for our template -->
+    <!-- <link
+      rel="stylesheet"
+      href="assets/css/bootstrap-theme.css"
+      media="screen"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/main.css" /> -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <br />
+    <br />
+    <div class="container">
+      <h1>Edition Ingredient</h1>
+      <div class="form-group">
+        <label>id:</label>
+        <input
+          [(ngModel)]="ingredient.id"
+          class="form-control"
+          readonly
+          placeholder="generation automatique"
+        />
+      </div>
+      <div class="form-group">
+        <label>Libelle :</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="ingredient.libelle"
+        />
+      </div>
+      <div class="form-group">
+        <label>Descirption :</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="ingredient.description"
+        />
+      </div>
+      <div class="form-group">
+        <label>Chance de drop :</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="ingredient.dropChance"
+        />
+      </div>
+
+      <div>
+        <button (click)="save()" class="btn btn-primary">enregistrer</button>
+        <a
+          routerLink="/admin/ingredient/list"
+          routerLinkActive="active"
+          class="btn btn-danger"
+          >annuler</a
+        >
+      </div>
+    </div>
+  </body>
+  <app-footer></app-footer>
+</html>

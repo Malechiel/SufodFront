@@ -1,38 +1,90 @@
-<table class="table">
-  <tr>
-    <th>Id</th>
-    <th>Nom</th>
-    <th>Description</th>
-    <th>Niveau</th>
-    <th>Classe</th>
-    <th>Defense</th>
-    <th>Pv</th>
-    <th>Drop</th>
-    <th>Attaque</th>
-  </tr>
-  <tr *ngFor="let monstre of monstres | async">
-    <td>{{ monstre.id }}</td>
-    <td>{{ monstre.nom }}</td>
-    <td>{{ monstre.description }}</td>
-    <td>{{ monstre.niveau }}</td>
-    <td>{{ monstre.classe }}</td>
-    <td>{{ monstre.defense }}</td>
-    <td>{{ monstre.pvMax }}</td>
-    <td>{{ monstre.drop }}</td>
-    <td>{{ monstre.attaque?.id }} {{ monstre.attaque?.nom }}</td>
-    <td>
-      <a
-        routerLink="/admin/monstre/edit/{{ monstre.id }}"
-        routerLinkActive="active"
-        class="btn btn-primary"
-        >edition</a
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)" />
+
+    <title>Sufod - Jeu gratuit mais e-shop honéreux $_$</title>
+    <link rel="shortcut icon" href="../../assets/images/gt_favicon.png" />
+
+    <!-- <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css" /> -->
+
+    <!-- Custom styles for our template -->
+    <!-- <link
+      rel="stylesheet"
+      href="assets/css/bootstrap-theme.css"
+      media="screen"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/main.css" /> -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+      <h1>List des monstres</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Niveau</th>
+            <th>Classe</th>
+            <th>Defense</th>
+            <th>Pv</th>
+            <th>Drop</th>
+            <th>Attaque</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let monstre of monstres | async">
+            <td>{{ monstre.id }}</td>
+            <td>{{ monstre.nom }}</td>
+            <td>{{ monstre.description }}</td>
+            <td>{{ monstre.niveau }}</td>
+            <td>{{ monstre.classe }}</td>
+            <td>{{ monstre.defense }}</td>
+            <td>{{ monstre.pvMax }}</td>
+            <td>{{ monstre.drop }}</td>
+            <td>{{ monstre.attaque?.id }} {{ monstre.attaque?.nom }}</td>
+            <td>
+              <a
+                routerLink="/admin/monstre/edit/{{ monstre.id }}"
+                routerLinkActive="active"
+                class="btn btn-primary"
+                >edition</a
+              >
+            </td>
+            <td>
+              <button (click)="delete(monstre.id!)" class="btn btn-danger">
+                supprimer
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a routerLink="/admin/monstre/edit" class="btn btn-success"
+        >nouveau monstre</a
       >
-    </td>
-    <td>
-      <button (click)="delete(monstre.id!)" class="btn btn-danger">
-        supprimer
-      </button>
-    </td>
-  </tr>
-</table>
-<a routerLink="/admin/monstre/edit" class="btn btn-link">nouveau monstre</a>
+    </div>
+  </body>
+  <app-footer></app-footer>
+</html>

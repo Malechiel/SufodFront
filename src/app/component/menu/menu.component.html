@@ -1,93 +1,98 @@
-<nav>
-  <a routerLink="/home" routerLinkActive="active" ngLink>home</a>
-  <br />
-  <!-- <a routerLink="/form" routerLinkActive="active" class="btn btn-link"
-    >formulaire bonjour</a
-  >
-  <a
-    [routerLink]="[{ outlets: { primary: 'home', footer: 'produits' } }]"
-    class="btn btn-link"
-    >produits dans footer</a
-  >
-  <a
-    [routerLink]="[
-      { outlets: { primary: 'home', footer: ['parametre', 'olivier'] } }
-    ]"
-    class="btn btn-link"
-    >parametre dans footer</a
-  > -->
-  <a
-    routerLink="/admin/personnage/list"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >personnage</a
-  >
-  <br />
-  <a
-    routerLink="/admin/ingredient/list"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >ingredient</a
-  >
-  <br />
-  <a
-    routerLink="/admin/equipement/list"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >equipement</a
-  >
-  <br />
-  <a
-    routerLink="/admin/compte/list"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >compte</a
-  >
-  <br />
-  <a
-    routerLink="/admin/attaque/list"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >attaque</a
-  >
-  <br />
-  <a
-    routerLink="/admin/monstre/list"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >monstre</a
-  >
-  <br />
-  <!-- <a
-    routerLink="/formulaire/template"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >formulaire template</a
-  >
-  <a
-    routerLink="/formulaire/code"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >formulaire code</a
-  > -->
-  <a
-    *ngIf="!logged"
-    routerLink="/inscription"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >inscription</a
-  >
-  <br />
-  <a
-    *ngIf="!logged"
-    routerLink="/login"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >login</a
-  >
-  <br />
-  <span *ngIf="logged"
-    >Bonjour {{ compte?.prenom }}
-    <button (click)="logout()" class="btn btn-link">deconnexion</button>
-  </span>
-</nav>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)" />
+
+    <title>Sufod - Jeu gratuit mais e-shop honéreux $_$</title>
+    <link rel="shortcut icon" href="../../assets/images/gt_favicon.png" />
+
+    <!-- <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css" /> -->
+
+    <!-- Custom styles for our template -->
+    <!-- <link
+      rel="stylesheet"
+      href="assets/css/bootstrap-theme.css"
+      media="screen"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/main.css" /> -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+    <br />
+    <br />
+
+    <h1>(Godmode Activate) Page de gestion</h1>
+    <table>
+      <td>
+        <a routerLink="/home" routerLinkActive="active" class="btn btn-warning"
+          >home</a
+        >
+      </td>
+      <td>
+        <a
+          routerLink="/admin/personnage/list"
+          routerLinkActive="active"
+          class="btn btn-primary"
+          >personnage</a
+        >
+      </td>
+      <td>
+        <a
+          routerLink="/admin/ingredient/list"
+          routerLinkActive="active"
+          class="btn btn-primary"
+          >ingredient</a
+        >
+      </td>
+      <td>
+        <a
+          routerLink="/admin/equipement/list"
+          routerLinkActive="active"
+          class="btn btn-primary"
+          >equipement</a
+        >
+      </td>
+      <td>
+        <a
+          routerLink="/admin/compte/list"
+          routerLinkActive="active"
+          class="btn btn-primary"
+          >compte</a
+        >
+      </td>
+      <td>
+        <a
+          routerLink="/admin/attaque/list"
+          routerLinkActive="active"
+          class="btn btn-primary"
+          >attaque</a
+        >
+      </td>
+      <td>
+        <a
+          routerLink="/admin/monstre/list"
+          routerLinkActive="active"
+          class="btn btn-primary"
+          >monstre</a
+        >
+      </td>
+    </table>
+  </body>
+  <app-footer></app-footer>
+</html>

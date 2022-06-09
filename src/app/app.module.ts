@@ -35,6 +35,7 @@ import { EditMonstreComponent } from './edit/monstre/edit-monstre/edit-monstre.c
 import { EditPersonnageComponent } from './edit/personnage/edit-personnage.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MenuComponent } from './component/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     EditItemComponent,
     EditMonstreComponent,
     EditPersonnageComponent,
+    MenuComponent,
   ],
 
   imports: [

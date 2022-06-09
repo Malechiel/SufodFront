@@ -26,6 +26,7 @@ import { EditIngredientComponent } from './edit/ingredient/edit-ingredient/edit-
 import { EditEquipementComponent } from './edit/equipement/edit-equipement/edit-equipement.component';
 import { AnonymousService } from './services/anonymous.service';
 import { AuthenticatedGuardService } from './services/authenticated-guard.service';
+import { MenuComponent } from './component/menu/menu.component';
 
 export const routes: Routes = [
   { path: 'actus', component: ActusComponent },
@@ -161,6 +162,11 @@ export const routes: Routes = [
   {
     path: 'admin/equipement/edit/:id',
     component: EditEquipementComponent,
+    canActivate: [AuthenticatedGuardService],
+  },
+  {
+    path: 'admin',
+    component: MenuComponent,
     canActivate: [AuthenticatedGuardService],
   },
 
