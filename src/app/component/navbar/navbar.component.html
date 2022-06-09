@@ -118,7 +118,7 @@
                 routerLink="/admin"
                 routerLinkActive="active"
               >
-                Admin
+                Admin: {{ compte?.pseudo }}
               </a>
             </li>
 
@@ -130,7 +130,7 @@
                 routerLinkActive="active"
                 (click)="logout()"
               >
-                Pseudo : {{ compte?.pseudo }} / Deconnexion
+                Deconnexion
               </a>
             </li>
           </ul>

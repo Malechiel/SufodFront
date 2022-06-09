@@ -46,8 +46,8 @@
             <th>Id</th>
             <th>Prenom</th>
             <th>Nom</th>
-            <th>Pseudo</th>
             <th>Mail</th>
+            <th>Pseudo</th>
             <th>Type</th>
           </tr>
         </thead>
@@ -56,8 +56,8 @@
             <td>{{ compte.id }}</td>
             <td>{{ compte.prenom }}</td>
             <td>{{ compte.nom }}</td>
-            <td>{{ compte.pseudo }}</td>
             <td>{{ compte.mail }}</td>
+            <td>{{ compte.pseudo }}</td>
             <td>{{ compte.type }}</td>
             <td>
               <a
@@ -75,9 +75,6 @@
           </tr>
         </tbody>
       </table>
-      <a routerLink="/admin/compte/edit" class="btn btn-success"
-        >nouveau compte</a
-      >
     </div>
   </body>
   <app-footer></app-footer>

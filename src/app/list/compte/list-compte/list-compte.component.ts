@@ -10,12 +10,18 @@ import { Compte } from 'src/app/model/compte';
 })
 export class ListCompteComponent implements OnInit {
   comptes: Observable<Compte[]>;
+  etat = '';
   constructor(private compteService: CompteService) {
     this.comptes = compteService.getAll();
   }
 
   ngOnInit(): void {}
-
+  creation() {
+    this.etat = 'create';
+  }
+  edition() {
+    this.etat = 'update';
+  }
   delete(id: number) {
     this.compteService.delete(id).subscribe(() => {
       this.comptes = this.compteService.getAll();

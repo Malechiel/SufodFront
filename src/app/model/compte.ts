@@ -12,7 +12,9 @@ export class Compte {
   get mdp(): string | undefined {
     return this._mdp;
   }
-
+  set mdp(value: string | undefined) {
+    this._mdp = value;
+  }
   get id(): number | undefined {
     return this._id;
   }

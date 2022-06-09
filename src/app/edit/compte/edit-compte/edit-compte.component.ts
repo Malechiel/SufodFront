@@ -10,6 +10,7 @@ import { CompteService } from 'src/app/services/compte.service';
 })
 export class EditCompteComponent implements OnInit {
   compte: Compte;
+  creation = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -32,11 +33,13 @@ export class EditCompteComponent implements OnInit {
       console.log('update');
       this.compteService.update(this.compte).subscribe(() => {
         this.router.navigateByUrl('/admin/compte/list');
+        this.creation = 'update';
       });
     } else {
       console.log('create');
       this.compteService.create(this.compte).subscribe(() => {
         this.router.navigateByUrl('/admin/compte/list');
+        this.creation = 'create';
       });
     }
   }

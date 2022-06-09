@@ -35,7 +35,7 @@ export class CompteService {
       Object.assign(obj, { id: compte.id });
     }
     if (compte.mail) {
-      Object.assign(obj, { id: compte.mail });
+      Object.assign(obj, { mail: compte.mail });
     }
 
     console.log(obj);
