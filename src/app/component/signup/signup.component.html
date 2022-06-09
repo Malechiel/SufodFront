@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Sergey Pozhilov (GetTemplate.com)" />
+
+    <title>Sufod - Jeu gratuit mais e-shop honéreux $_$</title>
+    <link rel="shortcut icon" href="../../assets/images/gt_favicon.png" />
+
+    <!-- <link
+      rel="stylesheet"
+      media="screen"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css" /> -->
+
+    <!-- Custom styles for our template -->
+    <!-- <link
+      rel="stylesheet"
+      href="assets/css/bootstrap-theme.css"
+      media="screen"
+    /> -->
+    <!-- <link rel="stylesheet" href="../../assets/css/main.css" /> -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <app-navbar></app-navbar>
+  <br />
+  <br />
+  <br />
+  <body>
+    <!-- container -->
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="/home">Accueil</a></li>
+        <li class="active">Inscription</li>
+      </ol>
+
+      <div class="row">
+        <!-- Article main content -->
+        <article class="col-xs-12 maincontent">
+          <header class="page-header">
+            <h1 class="page-title text-center">Inscription</h1>
+          </header>
+
+          <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h3 class="thin text-center">Enregistrer un nouveau compte</h3>
+                <p class="text-center text-muted">
+                  Si vous avez déjà un compte, veuillez vous
+                  <a href="/signin">connecter</a>.
+                </p>
+                <hr />
+
+                <form>
+                  <div class="top-margin">
+                    <label>Nom:<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="top-margin">
+                    <label>Prenom:<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="top-margin">
+                    <label>Pseudo:<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div class="top-margin">
+                    <label
+                      >Adresse mail:<span class="text-danger">*</span></label
+                    >
+                    <input type="email" class="form-control" />
+                  </div>
+
+                  <div class="row top-margin">
+                    <div class="col-sm-6">
+                      <label
+                        >Mot de passe:<span class="text-danger">*</span></label
+                      >
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-sm-6">
+                      <label
+                        >Confirmation:<span class="text-danger">*</span></label
+                      >
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-sm-12">
+                      <label
+                        >Tous les champs ayant
+                        <span class="text-danger">*</span>
+                        sont obligatoires.
+                      </label>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-lg-7">
+                      <label class="checkbox">
+                        <input type="checkbox" /> J'ai lu et accepté les
+                        <a href="/page-termes">CGUs</a>.
+                      </label>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                      <button class="btn btn-action" type="submit">
+                        S'enregistrer
+                      </button>
+                      <div class="col-lg-1"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- /Article -->
+      </div>
+    </div>
+    <!-- /container -->
+    <app-footer></app-footer>
+  </body>
+</html>
