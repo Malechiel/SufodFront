@@ -60,14 +60,28 @@
                   pour visiter ce monde féérique.
                 </p>
                 <hr />
-
-                <form>
+                <div *ngIf="showError">{{ message }}</div>
+                <form (ngSubmit)="submit(form)" #form="ngForm">
                   <div class="top-margin">
-                    <p>Identifiant/Email <span class="text-danger">*</span></p>
-                    <input type="text" class="form-control" />
+                    <p>Pseudo <span class="text-danger">*</span></p>
+                    <input
+                      class="form-control"
+                      name="pseudo"
+                      [(ngModel)]="pseudo"
+                      #pseudoCtrl="ngModel"
+                      required
+                    />
+
                     <div class="top-margin">
                       <p>Mot de passe <span class="text-danger">*</span></p>
-                      <input type="password" class="form-control" />
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="mdp"
+                        [(ngModel)]="password"
+                        #passwordCtrl="ngModel"
+                        required
+                      />
                     </div>
                   </div>
                   <p>
@@ -83,13 +97,13 @@
                       </p>
                     </div>
                     <div class="col-lg-4 text-right">
-                      <a
-                        href="/home"
-                        class="btn btn-action btn-lg"
-                        role="button"
+                      <button
                         type="submit"
-                        >Se connecter</a
+                        class="btn btn-action btn-lg"
+                        [disabled]="form.invalid"
                       >
+                        Se connecter
+                      </button>
                     </div>
                   </div>
                 </form>

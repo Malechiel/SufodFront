@@ -1,0 +1,70 @@
+<div>
+  <div class="form-group">
+    <label>id:</label>
+    <input
+      [(ngModel)]="monstre.id"
+      class="form-control"
+      readonly
+      placeholder="generation automatique"
+    />
+  </div>
+  <div class="form-group">
+    <label>Nom :</label>
+    <input type="text" class="form-control" [(ngModel)]="monstre.nom" />
+  </div>
+  <div class="form-group">
+    <label>Descirption :</label>
+    <input type="text" class="form-control" [(ngModel)]="monstre.description" />
+  </div>
+  <div class="form-group">
+    <label>Niveau :</label>
+    <input type="number" class="form-control" [(ngModel)]="monstre.niveau" />
+  </div>
+  <div class="form-group">
+    <label>Classe :</label>
+    <select [(ngModel)]="monstre.classe">
+      <option value="Yop">Yop</option>
+      <option value="Cra">Cra</option>
+      <option value="Sarasin">Sarasin</option>
+      <option value="Magique">Magique</option>
+      <option value="Physique">Physique</option>
+      <option value="Distance">Distance</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Defense :</label>
+    <input type="number" class="form-control" [(ngModel)]="monstre.defense" />
+  </div>
+  <div class="form-group">
+    <label>Pv :</label>
+    <input type="number" class="form-control" [(ngModel)]="monstre.pv" />
+  </div>
+  <div class="form-group">
+    <label>Pv Max:</label>
+    <input type="number" class="form-control" [(ngModel)]="monstre.pvMax" />
+  </div>
+
+  <div class="form-group">
+    <label>Drop :</label>
+    <input type="number" class="form-control" [(ngModel)]="monstre.drop" />
+  </div>
+
+  <div class="form-group">
+    <label>attaque</label>
+    <select class="form-control" [(ngModel)]="monstre.attaque">
+      <option *ngFor="let a of attaque | async" [ngValue]="a">
+        {{ a.id }} {{ a.nom }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button (click)="save()" class="btn btn-primary">enregistrer</button>
+    <a
+      routerLink="/admin/monstre/list"
+      routerLinkActive="active"
+      class="btn btn-link"
+      >annuler</a
+    >
+  </div>
+</div>

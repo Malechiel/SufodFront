@@ -1,0 +1,50 @@
+<div>
+  <div class="form-group">
+    <label>id:</label>
+    <input
+      [(ngModel)]="ingredient.id"
+      class="form-control"
+      readonly
+      placeholder="generation automatique"
+    />
+  </div>
+  <div class="form-group">
+    <label>Libelle :</label>
+    <input type="text" class="form-control" [(ngModel)]="ingredient.libelle" />
+  </div>
+  <div class="form-group">
+    <label>Descirption :</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="ingredient.description"
+    />
+  </div>
+  <div class="form-group">
+    <label>Chance de drop :</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="ingredient.dropChance"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>attaque</label>
+    <select class="form-control" [(ngModel)]="ingredient.personnages">
+      <option *ngFor="let p of personnage | async" [ngValue]="p">
+        {{ p.id }} {{ p.nom }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button (click)="save()" class="btn btn-primary">enregistrer</button>
+    <a
+      routerLink="/admin/ingredient/list"
+      routerLinkActive="active"
+      class="btn btn-link"
+      >annuler</a
+    >
+  </div>
+</div>

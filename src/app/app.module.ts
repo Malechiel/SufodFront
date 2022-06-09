@@ -19,6 +19,22 @@ import { RouterModule } from '@angular/router';
 import { routes } from './routes';
 import { LienDirective } from './directive/lien.directive';
 import { CraReleaseComponent } from './component/cra-release/cra-release.component';
+import { ListAttaqueComponent } from './list/attaque/list-attaque/list-attaque.component';
+import { ListCompteComponent } from './list/compte/list-compte/list-compte.component';
+import { ListEquipementComponent } from './list/equipement/list-equipement/list-equipement.component';
+import { ListIngredientComponent } from './list/ingredient/list-ingredient/list-ingredient.component';
+import { ListItemComponent } from './list/item/list-item/list-item.component';
+import { ListMonstreComponent } from './list/monstre/list-monstre/list-monstre.component';
+import { ListPersonnageComponent } from './list/personnage/list-personnage.component';
+import { EditAttaqueComponent } from './edit/attaque/edit-attaque/edit-attaque.component';
+import { EditCompteComponent } from './edit/compte/edit-compte/edit-compte.component';
+import { EditEquipementComponent } from './edit/equipement/edit-equipement/edit-equipement.component';
+import { EditIngredientComponent } from './edit/ingredient/edit-ingredient/edit-ingredient.component';
+import { EditItemComponent } from './edit/item/edit-item/edit-item.component';
+import { EditMonstreComponent } from './edit/monstre/edit-monstre/edit-monstre.component';
+import { EditPersonnageComponent } from './edit/personnage/edit-personnage.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,16 +53,33 @@ import { CraReleaseComponent } from './component/cra-release/cra-release.compone
     PagesTermesComponent,
     LienDirective,
     CraReleaseComponent,
+    ListAttaqueComponent,
+    ListCompteComponent,
+    ListEquipementComponent,
+    ListIngredientComponent,
+    ListItemComponent,
+    ListMonstreComponent,
+    ListPersonnageComponent,
+    EditAttaqueComponent,
+    EditCompteComponent,
+    EditEquipementComponent,
+    EditIngredientComponent,
+    EditItemComponent,
+    EditMonstreComponent,
+    EditPersonnageComponent,
   ],
 
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
     FormsModule,
     ReactiveFormsModule,
   ],
 
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

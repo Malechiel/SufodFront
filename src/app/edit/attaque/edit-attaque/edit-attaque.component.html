@@ -1,0 +1,34 @@
+<div>
+  <h1>edition matiere</h1>
+  <div class="form-group">
+    <label>id:</label>
+    <input
+      [(ngModel)]="attaque.id"
+      class="form-control"
+      readonly
+      placeholder="generation automatique"
+    />
+  </div>
+  <div class="form-group">
+    <label>Nom::</label>
+    <input [(ngModel)]="attaque.nom" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label>Degats:</label>
+    <input type="number" [(ngModel)]="attaque.degats" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label>Type:</label>
+    <select [(ngModel)]="attaque.type">
+      <option value="Magique">Magique</option>
+      <option value="Physique">Physique</option>
+      <option value="Distance">Distance</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="save()">enregistrer</button>
+    <a class="btn btn-warning" routerLink="/admin/attaque/list">annuler</a>
+  </div>
+</div>

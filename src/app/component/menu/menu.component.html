@@ -1,0 +1,93 @@
+<nav>
+  <a routerLink="/home" routerLinkActive="active" ngLink>home</a>
+  <br />
+  <!-- <a routerLink="/form" routerLinkActive="active" class="btn btn-link"
+    >formulaire bonjour</a
+  >
+  <a
+    [routerLink]="[{ outlets: { primary: 'home', footer: 'produits' } }]"
+    class="btn btn-link"
+    >produits dans footer</a
+  >
+  <a
+    [routerLink]="[
+      { outlets: { primary: 'home', footer: ['parametre', 'olivier'] } }
+    ]"
+    class="btn btn-link"
+    >parametre dans footer</a
+  > -->
+  <a
+    routerLink="/admin/personnage/list"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >personnage</a
+  >
+  <br />
+  <a
+    routerLink="/admin/ingredient/list"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >ingredient</a
+  >
+  <br />
+  <a
+    routerLink="/admin/equipement/list"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >equipement</a
+  >
+  <br />
+  <a
+    routerLink="/admin/compte/list"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >compte</a
+  >
+  <br />
+  <a
+    routerLink="/admin/attaque/list"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >attaque</a
+  >
+  <br />
+  <a
+    routerLink="/admin/monstre/list"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >monstre</a
+  >
+  <br />
+  <!-- <a
+    routerLink="/formulaire/template"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >formulaire template</a
+  >
+  <a
+    routerLink="/formulaire/code"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >formulaire code</a
+  > -->
+  <a
+    *ngIf="!logged"
+    routerLink="/inscription"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >inscription</a
+  >
+  <br />
+  <a
+    *ngIf="!logged"
+    routerLink="/login"
+    routerLinkActive="active"
+    class="btn btn-link"
+    >login</a
+  >
+  <br />
+  <span *ngIf="logged"
+    >Bonjour {{ compte?.prenom }}
+    <button (click)="logout()" class="btn btn-link">deconnexion</button>
+  </span>
+</nav>

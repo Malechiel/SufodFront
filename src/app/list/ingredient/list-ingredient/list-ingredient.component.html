@@ -1,0 +1,30 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Libelle</th>
+    <th>Description</th>
+    <th>dropChance</th>
+    <th>Personnage</th>
+  </tr>
+  <tr *ngFor="let ingredient of ingredients | async">
+    <td>{{ ingredient.id }}</td>
+    <td>{{ ingredient.libelle }}</td>
+    <td>{{ ingredient.description }}</td>
+    <td>{{ ingredient.dropChance }}</td>
+    <td>{{ ingredient.personnages }}</td>
+    <td>
+      <a
+        routerLink="/admin/ingredient/edit/{{ ingredient.id }}"
+        routerLinkActive="active"
+        class="btn btn-primary"
+        >edition</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(ingredient.id!)" class="btn btn-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/admin/ingredient/edit" class="btn btn-link">nouvel item</a>

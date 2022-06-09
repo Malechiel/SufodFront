@@ -1,0 +1,32 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Prenom</th>
+    <th>Nom</th>
+    <th>Pseudo</th>
+    <th>Mail</th>
+    <th>Type</th>
+  </tr>
+  <tr *ngFor="let compte of comptes | async">
+    <td>{{ compte.id }}</td>
+    <td>{{ compte.prenom }}</td>
+    <td>{{ compte.nom }}</td>
+    <td>{{ compte.pseudo }}</td>
+    <td>{{ compte.mail }}</td>
+    <td>{{ compte.type }}</td>
+    <td>
+      <a
+        routerLink="/admin/compte/edit/{{ compte.id }}"
+        routerLinkActive="active"
+        class="btn btn-primary"
+        >edition</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(compte.id!)" class="btn btn-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/admin/compte/edit" class="btn btn-link">nouveau compte</a>

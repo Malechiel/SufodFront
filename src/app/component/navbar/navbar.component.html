@@ -99,13 +99,28 @@
                 >E-shop</a
               >
             </li>
+
             <li class="nav-item">
               <a
+                *ngIf="!logged"
                 class="btn btn-action btn-lg"
                 routerLink="/signin"
                 routerLinkActive="active"
               >
                 S'INSCRIRE / SE CONNECTER</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                *ngIf="logged"
+                class="btn btn-action btn-lg"
+                routerLink="/home"
+                routerLinkActive="active"
+              >
+                {{ compte?.pseudo }}
+                <button (click)="logout()" class="btn btn-link">
+                  deconnexion
+                </button></a
               >
             </li>
           </ul>

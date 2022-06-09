@@ -1,0 +1,41 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Libelle</th>
+    <th>Description</th>
+    <th>dropChance</th>
+
+    <th>Pv</th>
+    <th>Defense</th>
+    <th>Attaque</th>
+    <th>Localisation</th>
+    <th>Personnage</th>
+  </tr>
+  <tr *ngFor="let equipement of equipements | async">
+    <td>{{ equipement.id }}</td>
+    <td>{{ equipement.libelle }}</td>
+    <td>{{ equipement.description }}</td>
+    <td>{{ equipement.dropChance }}</td>
+    <td>{{ equipement.pv }}</td>
+    <td>{{ equipement.defense }}</td>
+    <td>{{ equipement.attaque }}</td>
+    <td>{{ equipement.localisation }}</td>
+    <td>{{ equipement.personnages }}</td>
+    <td>
+      <a
+        routerLink="/admin/equipement/edit/{{ equipement.id }}"
+        routerLinkActive="active"
+        class="btn btn-primary"
+        >edition</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(equipement.id!)" class="btn btn-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/admin/equipement/edit" class="btn btn-link"
+  >nouvel equipement</a
+>

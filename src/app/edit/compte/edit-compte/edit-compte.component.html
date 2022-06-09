@@ -1,0 +1,42 @@
+<div>
+  <div class="form-group">
+    <label>Prenom :</label>
+    <input type="text" class="form-control" [(ngModel)]="compte.prenom" />
+  </div>
+  <div class="form-group">
+    <label>Nom :</label>
+    <input type="text" class="form-control" [(ngModel)]="compte.nom" />
+  </div>
+  <div class="form-group">
+    <label>Pseudo :</label>
+    <input type="text" class="form-control" [(ngModel)]="compte.pseudo" />
+  </div>
+  <div class="form-group">
+    <label>Mail :</label>
+    <input type="email" class="form-control" [(ngModel)]="compte.mail" />
+  </div>
+  <div class="form-group">
+    <label>Mdp :</label>
+    <input type="password" class="form-control" [(ngModel)]="compte.mail" />
+  </div>
+
+  <div class="form-group">
+    <label>Type :</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="compte.type"
+      [disabled]="true"
+    />
+  </div>
+
+  <div>
+    <button (click)="save()" class="btn btn-primary">enregistrer</button>
+    <a
+      routerLink="/admin/compte/list"
+      routerLinkActive="active"
+      class="btn btn-link"
+      >annuler</a
+    >
+  </div>
+</div>

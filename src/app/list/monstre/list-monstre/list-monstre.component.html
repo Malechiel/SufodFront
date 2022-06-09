@@ -1,0 +1,38 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Description</th>
+    <th>Niveau</th>
+    <th>Classe</th>
+    <th>Defense</th>
+    <th>Pv</th>
+    <th>Drop</th>
+    <th>Attaque</th>
+  </tr>
+  <tr *ngFor="let monstre of monstres | async">
+    <td>{{ monstre.id }}</td>
+    <td>{{ monstre.nom }}</td>
+    <td>{{ monstre.description }}</td>
+    <td>{{ monstre.niveau }}</td>
+    <td>{{ monstre.classe }}</td>
+    <td>{{ monstre.defense }}</td>
+    <td>{{ monstre.pvMax }}</td>
+    <td>{{ monstre.drop }}</td>
+    <td>{{ monstre.attaque?.id }} {{ monstre.attaque?.nom }}</td>
+    <td>
+      <a
+        routerLink="/admin/monstre/edit/{{ monstre.id }}"
+        routerLinkActive="active"
+        class="btn btn-primary"
+        >edition</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(monstre.id!)" class="btn btn-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/admin/monstre/edit" class="btn btn-link">nouveau monstre</a>

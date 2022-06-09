@@ -1,0 +1,47 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Description</th>
+    <th>Niveau</th>
+    <th>Classe</th>
+    <th>Defense</th>
+    <th>Pv</th>
+    <th>PvMax</th>
+    <th>Xp</th>
+    <th>Compte</th>
+    <th>Attaque</th>
+    <th>Item</th>
+  </tr>
+  <tr *ngFor="let personnage of personnages | async">
+    <td>{{ personnage.id }}</td>
+    <td>{{ personnage.nom }}</td>
+    <td>{{ personnage.description }}</td>
+    <td>{{ personnage.niveau }}</td>
+    <td>{{ personnage.classe }}</td>
+    <td>{{ personnage.defense }}</td>
+    <td>{{ personnage.pv }}</td>
+    <td>{{ personnage.pvMax }}</td>
+    <td>{{ personnage.xp }}</td>
+    <td>{{ personnage.compte?.id }} {{ personnage.compte?.type }}</td>
+    <td>{{ personnage.attaque?.id }} {{ personnage.attaque?.nom }}</td>
+    <td>{{ personnage.items?.id }} {{ personnage.items?.libelle }}</td>
+
+    <td>
+      <a
+        routerLink="/admin/personnage/edit/{{ personnage.id }}"
+        routerLinkActive="active"
+        class="btn btn-primary"
+        >edition</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(personnage.id!)" class="btn btn-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/admin/personnage/edit" class="btn btn-link"
+  >nouveau personnage</a
+>

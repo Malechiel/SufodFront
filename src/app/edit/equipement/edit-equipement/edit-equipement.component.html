@@ -1,0 +1,88 @@
+<div>
+  <div class="form-group">
+    <label>id:</label>
+    <input
+      [(ngModel)]="equipement.id"
+      class="form-control"
+      readonly
+      placeholder="generation automatique"
+    />
+  </div>
+  <div class="form-group">
+    <label>Libelle :</label>
+    <input type="text" class="form-control" [(ngModel)]="equipement.libelle" />
+  </div>
+  <div class="form-group">
+    <label>Descirption :</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="equipement.description"
+    />
+  </div>
+  <div class="form-group">
+    <label>Chance de drop :</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="equipement.dropChance"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Pv :</label>
+    <input type="number" class="form-control" [(ngModel)]="equipement.pv" />
+  </div>
+
+  <div class="form-group">
+    <label>Defense :</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="equipement.defense"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Attaque :</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="equipement.attaque"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Localisation :</label>
+    <select [(ngModel)]="equipement.localisation">
+      <option value="tete">Tete</option>
+      <option value="torse">Torse</option>
+      <option value="bras_gauche">Bras Gauche</option>
+      <option value="bras_droit">Bras Droit</option>
+      <option value="main_gauche">Main Gauche</option>
+      <option value="main_droite">Main Droite</option>
+      <option value="jambieres">Jambière</option>
+      <option value="jambe_gauche">Jambe Gauche</option>
+      <option value="jambe_droite">Jambe Droite</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>attaque</label>
+    <select class="form-control" [(ngModel)]="equipement.personnages">
+      <option *ngFor="let p of personnage | async" [ngValue]="p">
+        {{ p.id }} {{ p.nom }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button (click)="save()" class="btn btn-primary">enregistrer</button>
+    <a
+      routerLink="/admin/equipement/list"
+      routerLinkActive="active"
+      class="btn btn-link"
+      >annuler</a
+    >
+  </div>
+</div>

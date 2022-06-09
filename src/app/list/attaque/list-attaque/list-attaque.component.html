@@ -1,0 +1,39 @@
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Degats</th>
+    <th>Type</th>
+    <!-- <th>Personnage</th>
+    <th>Monstre</th>-->
+  </tr>
+  <tr *ngFor="let attaque of attaques | async">
+    <td>{{ attaque.id }}</td>
+    <td>{{ attaque.nom }}</td>
+    <td>{{ attaque.degats }}</td>
+    <td>{{ attaque.type }}</td>
+    <!--<td>
+      <a
+        routerLink="/admin/attaque/personnage/edit/{{ attaque.id }}"
+        routerLinkActive="active"
+        class="btn btn-primary"
+        >modification</a
+      >
+    </td>
+    <td>{{ attaque.monstres }}</td>-->
+    <td>
+      <a
+        routerLink="/admin/attaque/edit/{{ attaque.id }}"
+        routerLinkActive="active"
+        class="btn btn-primary"
+        >edition</a
+      >
+    </td>
+    <td>
+      <button (click)="delete(attaque.id!)" class="btn btn-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a routerLink="/admin/attaque/edit" class="btn btn-link">nouvelle attaque</a>

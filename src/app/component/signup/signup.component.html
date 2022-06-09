@@ -61,46 +61,140 @@
                 </p>
                 <hr />
 
-                <form>
+                <form (ngSubmit)="submit()" [formGroup]="form">
                   <div class="top-margin">
                     <label>Nom:<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" />
+                    <input class="form-control" formControlName="nom" />
+                    <div
+                      *ngIf="form.get('nom')?.dirty && form.get('nom')?.invalid"
+                      class="alert alert-danger"
+                    >
+                      *champ obligatoire
+                    </div>
                   </div>
                   <div class="top-margin">
                     <label>Prenom:<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" />
+                    <input class="form-control" formControlName="prenom" />
+                    <div
+                      *ngIf="
+                        form.get('prenom')?.dirty && form.get('prenom')?.invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      *champ obligatoire
+                    </div>
                   </div>
                   <div class="top-margin">
                     <label>Pseudo:<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" />
+                    <input class="form-control" formControlName="login" />
+                    <div
+                      *ngIf="
+                        form.get('login')?.dirty && form.get('login')?.invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      <ng-container
+                        *ngIf="form.get('login')?.hasError('required')"
+                      >
+                        *champ obligatoire
+                      </ng-container>
+                      <ng-container
+                        *ngIf="form.get('login')?.hasError('loginExist')"
+                      >
+                        *Pseudo déjà utilisé
+                      </ng-container>
+                    </div>
                   </div>
                   <div class="top-margin">
                     <label
                       >Adresse mail:<span class="text-danger">*</span></label
                     >
-                    <input type="email" class="form-control" />
+                    <input class="form-control" formControlName="mail" />
+                    <div
+                      *ngIf="
+                        form.get('mail')?.dirty && form.get('mail')?.invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      <ng-container
+                        *ngIf="form.get('mail')?.hasError('required')"
+                      >
+                        *champ obligatoire
+                      </ng-container>
+                    </div>
+                  </div>
+                  <ng-container formGroupName="passwordGroup">
+                    <div class="row top-margin">
+                      <div class="col-sm-6">
+                        <label
+                          >Mot de passe:<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          formControlName="password"
+                        />
+                        <div
+                          *ngIf="
+                            form.get('passwordGroup.password')?.dirty &&
+                            form.get('passwordGroup.password')?.invalid
+                          "
+                          class="alert alert-danger"
+                        >
+                          *champ obligatoire
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <label
+                          >Confirmation:<span class="text-danger"
+                            >*</span
+                          ></label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          formControlName="confirm"
+                        />
+                        <div
+                          *ngIf="
+                            form
+                              .get('passwordGroup')
+                              ?.hasError('passwordAndConfirmNotEquals')
+                          "
+                          class="alert alert-danger"
+                        >
+                          Veuillez saisir les mêmes les valeurs !
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <div class="col-sm-12">
+                    <label
+                      >Tous les champs ayant
+                      <span class="text-danger">*</span>
+                      sont obligatoires.
+                    </label>
                   </div>
 
-                  <div class="row top-margin">
-                    <div class="col-sm-6">
-                      <label
-                        >Mot de passe:<span class="text-danger">*</span></label
-                      >
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="col-sm-6">
-                      <label
-                        >Confirmation:<span class="text-danger">*</span></label
-                      >
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="col-sm-12">
-                      <label
-                        >Tous les champs ayant
-                        <span class="text-danger">*</span>
-                        sont obligatoires.
-                      </label>
-                    </div>
+                  <hr />
+                  <div class="form-group">
+                    <input
+                      type="radio"
+                      class="checkbox-input"
+                      formControlName="type"
+                      value="admin"
+                    />
+                    <label class="checkbox-label">Admin</label>
+                    <input
+                      type="radio"
+                      class="checkbox-input"
+                      formControlName="type"
+                      value="joueur"
+                    />
+                    <label class="checkbox-label">Joueur</label>
                   </div>
                   <hr />
                   <div class="row">
@@ -111,7 +205,11 @@
                       </label>
                     </div>
                     <div class="col-lg-4 text-center">
-                      <button class="btn btn-action" type="submit">
+                      <button
+                        class="btn btn-action"
+                        type="submit"
+                        [disabled]="form.invalid"
+                      >
                         S'enregistrer
                       </button>
                       <div class="col-lg-1"></div>
